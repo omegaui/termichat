@@ -1,7 +1,10 @@
 
 import 'package:flutter/material.dart';
+import 'package:termichat/io/app_manager.dart';
 import 'package:termichat/io/app_style.dart';
+import 'package:termichat/main.dart';
 import 'package:termichat/ui/screens/create_server_screen.dart';
+import 'package:termichat/ui/screens/join_server_screen.dart';
 
 class HomeScreen extends StatelessWidget{
   const HomeScreen({super.key});
@@ -13,7 +16,8 @@ class HomeScreen extends StatelessWidget{
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         TextButton(
-          onPressed: () {
+          onPressed: () async {
+            await AppManager.setUsername(usernameField.text);
             Navigator.push(context, MaterialPageRoute(builder: (context) => CreateServerScreen()));
           },
           style: TextButton.styleFrom(
@@ -21,7 +25,7 @@ class HomeScreen extends StatelessWidget{
               foregroundColor: Colors.white
           ),
           child: Padding(
-            padding: EdgeInsets.all(12.0),
+            padding: const EdgeInsets.all(12.0),
             child: Text(
               "Create Server",
               style: TextStyle(
@@ -33,7 +37,10 @@ class HomeScreen extends StatelessWidget{
         ),
         const SizedBox(height: 20),
         TextButton(
-          onPressed: () {},
+          onPressed: () async {
+            await AppManager.setUsername(usernameField.text);
+            Navigator.push(context, MaterialPageRoute(builder: (context) => JoinServerScreen()));
+          },
           style: TextButton.styleFrom(
               backgroundColor: Colors.grey.withOpacity(0.3),
               foregroundColor: Colors.white

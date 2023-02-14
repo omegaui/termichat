@@ -8,8 +8,12 @@ class AppManager {
     _preferences = await SharedPreferences.getInstance();
   }
 
-  static String getOwnerID(){
-    return "omegaui";
+  static String getUsername(){
+    return _preferences.getString('username') ?? "";
+  }
+
+  static Future<void> setUsername(String name) async {
+    await _preferences.setString('username', name);
   }
 
   static bool isUserLoggedIn(){
@@ -22,10 +26,6 @@ class AppManager {
 
   static Future<void> setLightMode(bool value) async {
     await _preferences.setBool('light-mode', value);
-  }
-
-  static Future<void> setLoggedIn(bool value) async {
-    await _preferences.setBool('logged-in', value);
   }
 
 }

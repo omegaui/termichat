@@ -209,7 +209,7 @@ class CreateServerScreen extends StatelessWidget {
                                     "name": serverNameField.text,
                                     "host-address": hostNameField.text,
                                     "hosting-port": portNameField.text,
-                                    "owner-id": AppManager.getOwnerID(),
+                                    "owner-id": AppManager.getUsername(),
                                     "connections-limit": limit,
                                     "allowed-users-list": allowedUsersField.text.isNotEmpty ? allowedUsersField.text.split(',').map((id) => id.trim()).toList() : [],
                                     "blocked-users-list": blockedUsersField.text.isNotEmpty ? blockedUsersField.text.split(',').map((id) => id.trim()).toList() : [],
@@ -281,7 +281,7 @@ class CreateServerScreen extends StatelessWidget {
                                     "name": serverNameField.text,
                                     "host-address": hostNameField.text,
                                     "hosting-port": int.parse(portNameField.text),
-                                    "owner-id": AppManager.getOwnerID(),
+                                    "owner-id": AppManager.getUsername(),
                                     "connections-limit": limit,
                                     "allowed-users-list": allowedUsersField.text.isNotEmpty ? allowedUsersField.text.split(',').map((id) => id.trim()).toList() : [],
                                     "blocked-users-list": blockedUsersField.text.isNotEmpty ? blockedUsersField.text.split(',').map((id) => id.trim()).toList() : [],
@@ -625,7 +625,7 @@ class CreateServerScreen extends StatelessWidget {
           Align(
             alignment: Alignment.center,
             child: MoveWindow(),
-          )
+          ),
         ],
       ),
     );

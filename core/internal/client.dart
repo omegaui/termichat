@@ -22,6 +22,7 @@ class Client {
 }
 
 void main(){
-  Client client = Client('127.0.0.1:8088', User(uniqueID: 'omegaui', serverCode: 'code'));
+  Client client = Client('127.0.0.1:8080', User(uniqueID: 'harry', serverCode: 'code'));
+  client.send("hi");
 }
 

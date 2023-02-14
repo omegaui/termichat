@@ -1,4 +1,3 @@
-import 'dart:ui';
 
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
@@ -7,13 +6,15 @@ import 'package:termichat/ui/screens/home_screen.dart';
 
 import 'io/app_style.dart';
 
+late TextEditingController usernameField; 
+
 void rebuildApp(){
 
 }
 
 void main() async {
   await AppManager.initAppData();
-  AppStyle.switchTheme();
+  // AppStyle.switchTheme();
   runApp(const App());
 
   doWhenWindowReady(() {
@@ -36,9 +37,30 @@ class App extends StatelessWidget {
         home: Scaffold(
           backgroundColor: AppStyle.backgroundColor,
           body: Stack(children: [
-            Align(
+            const Align(
               alignment: Alignment.center,
               child: HomeScreen(),
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                padding: const EdgeInsets.all(80.0),
+                child: SizedBox(
+                  width: 160,
+                  height: 30,
+                  child: TextField(
+                    controller: usernameField = TextEditingController(text: AppManager.getUsername()),
+                    textAlign: TextAlign.center,
+                    decoration: InputDecoration(
+                      hintText: "Enter your username",
+                      hintStyle: TextStyle(
+                        color: AppStyle.textColor,
+                        fontWeight: FontWeight.bold
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             ),
             Align(
               alignment: Alignment.center,

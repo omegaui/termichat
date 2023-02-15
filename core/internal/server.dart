@@ -1,4 +1,5 @@
 import 'package:colored_print/colored_print.dart';
+import 'package:flutter/foundation.dart';
 
 import '../data/user.dart';
 import '../io/connection_manager.dart';
@@ -79,7 +80,9 @@ Handler init() {
       return session;
     } else {
       ColoredPrint.warning('Refused connection request from ${PrintColor.red(user.uniqueID)}');
-      print(requestHandler.refuseConnection(user));
+      if (kDebugMode) {
+        print(requestHandler.refuseConnection(user));
+      }
       return "CONNECTION REFUSED";
     }
   });

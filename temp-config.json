@@ -1,1 +1,1 @@
-{"name":"crunch","host-address":"127.0.0.1","hosting-port":8080,"owner-id":"omegaui","connections-limit":1,"allowed-users-list":[],"blocked-users-list":[],"push-previous-messages-to-new-users":true,"server-code":"code"}
+{"name":"Hello","host-address":"localhost","hosting-port":8080,"owner-id":"omegaui","connections-limit":-1,"allowed-users-list":[],"blocked-users-list":[],"push-previous-messages-to-new-users":true,"server-code":"code"}
